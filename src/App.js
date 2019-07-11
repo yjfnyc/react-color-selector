@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PickColor from  './PickColor';
-import SelectedColor from './SelectedColor';
+import PickColor from  './PickColor/PickColor';
+import SelectedColor from './SelectedColor/SelectedColor';
 
 function App() {
   return (
