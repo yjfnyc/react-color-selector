@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import PickColor from  './PickColor/PickColor';
 import SelectedColor from './SelectedColor/SelectedColor';

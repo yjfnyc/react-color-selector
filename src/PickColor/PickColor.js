@@ -1,4 +1,5 @@
 import React from 'react';
+import Palette from "./Palette";
 
 function PickColor() {
     let style={
@@ -10,7 +11,7 @@ function PickColor() {
     }
   return (
     <div style={style} className="SelectedColor">
-      <h1>Pick a Color</h1>
+      <Palette />
     </div>
   );
 }
