@@ -1,11 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PickColor from  './PickColor';
+import SelectedColor from './SelectedColor';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <PickColor />
+      <SelectedColor />
     </div>
   );
 }
