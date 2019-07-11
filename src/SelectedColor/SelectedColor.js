@@ -6,11 +6,12 @@ function SelectedColor() {
         border: "1px solid black",
         width: 400,
         height: 500,
-        margin: "auto"
+        "vertical-align": "top",
+        margin: "auto 20px"
     }
   return (
     <div style={style} className="SelectedColor">
-      <h1>Selected Color</h1>
+      <h2>Selected Color</h2>
     </div>
   );
 }

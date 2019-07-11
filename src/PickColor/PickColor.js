@@ -7,6 +7,7 @@ function PickColor() {
         border: "1px solid black",
         width: 400,
         height: 500,
+        "vertical-align": "top",
         margin: "auto 20px"
     }
   return (
