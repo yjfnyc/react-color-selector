@@ -1,3 +1,8 @@
+# React Color Selector
+Try to emulate the functionality of [HTML Color Picker](https://www.w3schools.com/colors/colors_picker.asp
+) with an REACT implementation.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
