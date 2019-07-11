@@ -1,4 +1,5 @@
 import React from 'react';
+import ColorBoard from './ColorBoard';
 
 function SelectedColor() {
     let style={
@@ -12,6 +13,7 @@ function SelectedColor() {
   return (
     <div style={style} className="SelectedColor">
       <h2>Selected Color</h2>
+      <ColorBoard />
     </div>
   );
 }
