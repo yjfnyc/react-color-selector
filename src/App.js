@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import PickColor from  './PickColor/PickColor';
-import SelectedColor from './SelectedColor/SelectedColor';
+import PickColor from  './components/PickColor/PickColor';
+import SelectedColor from './components/SelectedColor/SelectedColor';
 
 function App() {
   return (
