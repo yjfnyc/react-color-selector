@@ -7,7 +7,7 @@ function SelectedColor() {
         border: "1px solid black",
         width: 400,
         height: 500,
-        "vertical-align": "top",
+        verticalAlign: "top",
         margin: "auto 20px"
     }
   return (

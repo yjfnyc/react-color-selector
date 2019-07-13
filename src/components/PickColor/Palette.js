@@ -8,7 +8,7 @@ function Palette() {
     <div style={style} className="Palette">
       <h2>Pick a Color</h2>
         <div>
-            <img src="https://www.w3schools.com/colors/img_colormap.gif" usemap="#colormap" alt="colormap" />
+            <img src="https://www.w3schools.com/colors/img_colormap.gif" useMap="#colormap" alt="colormap" />
             <map id="colormap" name="colormap" >
             <area shape="poly" coords="63,0,72,4,72,15,63,19,54,15,54,4" alt="#003366"  />
             <area shape="poly" coords="81,0,90,4,90,15,81,19,72,15,72,4" alt="#336699"  />
