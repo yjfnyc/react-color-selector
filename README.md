@@ -1,5 +1,5 @@
 # React Color Selector
-Try to emulate the functionality of [HTML Color Picker](https://www.w3schools.com/colors/colors_picker.asp
+Try to emulate partial functionality of [HTML Color Picker](https://www.w3schools.com/colors/colors_picker.asp
 ) with a REACT implementation.
 
 
