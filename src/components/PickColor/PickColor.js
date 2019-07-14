@@ -3,7 +3,7 @@ import Palette from "./Palette";
 import {changeColorCode} from '../../actions';
 import {connect} from 'react-redux';
 
-function PickColor(changeColorCode) {
+function PickColor(dispatchColorCode) {
     let style={
         display: "inline-block",
         border: "1px solid black",
@@ -14,7 +14,7 @@ function PickColor(changeColorCode) {
     }
   return (
     <div style={style}  className="SelectedColor">
-      <Palette {...changeColorCode} />
+      <Palette {...dispatchColorCode} />
     </div>
   );
 }
@@ -23,7 +23,7 @@ let mapStateToProps = state => ({});
 
 let mapDispatchToProps = dispatch => {
   return {
-    changeColorCode: (code) => dispatch(changeColorCode(code))
+    dispatchColorCode: (code) => dispatch(changeColorCode(code))
   }
 };
 
