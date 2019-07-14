@@ -33,18 +33,4 @@ function Palette({changeColorCode}) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-  }
-};
-
-const mapDispatchToProps = (dispatch)=>{
-  return {
-    changeColorCode: (code) => dispatch({
-      type: 'change_color_code',
-      colorCode: code
-    })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Palette);
+export default Palette;

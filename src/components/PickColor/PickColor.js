@@ -1,7 +1,9 @@
 import React from 'react';
 import Palette from "./Palette";
+import {changeColorCode} from '../../actions';
+import {connect} from 'react-redux';
 
-function PickColor() {
+function PickColor(changeColorCode) {
     let style={
         display: "inline-block",
         border: "1px solid black",
@@ -11,10 +13,18 @@ function PickColor() {
         margin: "auto 20px"
     }
   return (
-    <div style={style} className="SelectedColor">
-      <Palette />
+    <div style={style}  className="SelectedColor">
+      <Palette {...changeColorCode} />
     </div>
   );
 }
 
-export default PickColor;
+let mapStateToProps = state => ({});
+
+let mapDispatchToProps = dispatch => {
+  return {
+    changeColorCode: (code) => dispatch(changeColorCode(code))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PickColor);
