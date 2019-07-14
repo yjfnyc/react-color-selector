@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Palette({changeColorCode}) {
+function Palette({dispatchColorCode}) {
   let colorCode;
   let style={
   };
@@ -9,8 +9,16 @@ function Palette({changeColorCode}) {
     colorCode = event.target.value;
   }
 
+  function handleClick(event){
+    let colorCode = event.target.alt;
+    if(colorCode != undefined){
+      colorCode = colorCode.replace('#','');
+      dispatchColorCode(colorCode);
+    }
+  }
+
   return (
-    <div style={style} className="Palette">
+    <div style={style} className="Palette" onClick={handleClick}>
       <h2>Pick a Color</h2>
         <div>
             <img src="/asset/img_colormap.gif" useMap="#colormap" alt="colormap" />
@@ -26,7 +34,7 @@ function Palette({changeColorCode}) {
         </div>
       <h2>Or Enter a Color:</h2>
       <input type="text" placeholder="Color value" onChange={handleChange}></input> 
-      <button onClick={function(){changeColorCode(colorCode)}}>OK</button>
+      <button onClick={function(){dispatchColorCode(colorCode)}}>OK</button>
     </div>
   );
 }
