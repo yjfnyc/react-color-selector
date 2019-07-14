@@ -4,13 +4,12 @@ import {connect} from 'react-redux';
 
 function Palette({changeColorCode}) {
   let colorCode;
-    let style={
-       
-    }
+  let style={
+  };
 
-    function handleChange(event){
-      colorCode = event.target.value;
-    }
+  function handleChange(event){
+    colorCode = event.target.value;
+  }
 
   return (
     <div style={style} className="Palette">

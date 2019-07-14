@@ -1,7 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import ColorBoard from './ColorBoard';
 
-function SelectedColor() {
+function SelectedColor(colorCode) {
     let style={
         display: "inline-block",
         border: "1px solid black",
@@ -13,9 +14,17 @@ function SelectedColor() {
   return (
     <div style={style} className="SelectedColor">
       <h2>Selected Color</h2>
-      <ColorBoard />
+      <ColorBoard {...colorCode} />
     </div>
   );
 }
 
-export default SelectedColor;
+let mapStateToProps = (state) => {
+  return {
+      colorCode: state.colorCode
+  }
+}
+
+let mapDispatchToProps = ()=>({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedColor);

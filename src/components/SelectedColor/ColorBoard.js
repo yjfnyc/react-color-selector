@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
+
 
 function ColorBoard({colorCode}) {
+    console.log("color code in color board: ", colorCode)
     let style = {
         width: 300,
         height: 300,
@@ -17,10 +18,4 @@ function ColorBoard({colorCode}) {
     );
 }
 
-let mapStateToProps = (state) => {
-    return {
-        colorCode: state.colorCode
-    }
-}
-
-export default connect(mapStateToProps)(ColorBoard);
+export default ColorBoard;
