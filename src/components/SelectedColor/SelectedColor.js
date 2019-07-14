@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ColorBoard from './ColorBoard';
+import ColorLabel from './ColorLabel';
 
 function SelectedColor(colorCode) {
     let style={
@@ -15,6 +16,7 @@ function SelectedColor(colorCode) {
     <div style={style} className="SelectedColor">
       <h2>Selected Color</h2>
       <ColorBoard {...colorCode} />
+      <ColorLabel {...colorCode} />
     </div>
   );
 }
