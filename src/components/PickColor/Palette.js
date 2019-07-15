@@ -20,8 +20,8 @@ class Palette extends Component {
       width: "21px", 
       height: "21px",
       backgroundImage: "url(/asset/img_selectedcolor.gif)",
-      top: "-54px",
-      left: "154px"
+      top: "-54px", // x+82
+      left: "154px" // y-208
     }
   }
   
