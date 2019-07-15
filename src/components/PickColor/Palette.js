@@ -13,8 +13,8 @@ class Palette extends Component {
     this.prevewStyle = {
       width: "78px",
       height: "20px",
-      margin: "auto",
-      marginTop: "20px",
+      marginLeft: "auto",
+      marginRight: "auto",
     };
     this.hexagonStyle = {
       visibility: "visible", 
@@ -22,6 +22,9 @@ class Palette extends Component {
       width: "21px", 
       height: "21px",
       backgroundImage: "url(/asset/img_selectedcolor.gif)"
+    };
+    this.html5Style = {
+      width: "50%"
     }
   }
   
@@ -34,8 +37,8 @@ class Palette extends Component {
     
     if(colorCode != undefined){
       let coords = event.target.coords.split(',');
-      let x = parseInt(coords[10]); //minimum x of the coords
-      let y = parseInt(coords[1]);  // minimum y of the coords
+      let x = parseInt(coords[10]); //minimum x of the clicked area's coords
+      let y = parseInt(coords[1]);  // minimum y of the click area's coords
       let left = x + 82;
       let top = y - 204;
       this.setState({
@@ -64,11 +67,15 @@ handleHoverOut(event){
 }
 
 render(){
+  let colorCode = `#${this.props.colorCode}`
   let style = {
     backgroundColor: this.state.backgroundColor,
     visibility: this.state.visibility
   };
 
+  let html5Style={
+
+  }
   let left = this.state.left.toString();
   let top = this.state.top.toString();
 
@@ -96,6 +103,8 @@ render(){
       <h2>Or Enter a Color:</h2>
       <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)}></input> 
       <button onClick={()=>{this.props.dispatchColorCode(this.colorCode)}}>OK</button>
+      <h2>Or Use HTML5</h2>
+      <input type="color" id="html5colorpicker" onchange="" value={colorCode} style={{...this.html5Style}}></input>
     </div>
   );
 }

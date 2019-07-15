@@ -3,10 +3,9 @@ import Palette from "./Palette";
 import {changeColorCode} from '../../actions';
 import {connect} from 'react-redux';
 
-function PickColor(dispatchColorCode) {
+function PickColor(props) {
     let style={
         display: "inline-block",
-        border: "1px solid black",
         width: 400,
         height: 500,
         verticalAlign: "top",
@@ -14,12 +13,16 @@ function PickColor(dispatchColorCode) {
     }
   return (
     <div style={style}  className="SelectedColor">
-      <Palette {...dispatchColorCode} />
+      <Palette {...props} />
     </div>
   );
 }
 
-let mapStateToProps = state => ({});
+let mapStateToProps = (state) => {
+  return {
+      colorCode: state.colorCode
+  }
+}
 
 let mapDispatchToProps = dispatch => {
   return {

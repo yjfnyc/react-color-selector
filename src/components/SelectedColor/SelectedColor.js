@@ -6,7 +6,6 @@ import ColorLabel from './ColorLabel';
 function SelectedColor(colorCode) {
     let style={
         display: "inline-block",
-        border: "1px solid black",
         width: 400,
         height: 500,
         verticalAlign: "top",
