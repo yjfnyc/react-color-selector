@@ -4,6 +4,7 @@ class Palette extends Component {
   constructor(props){
     super(props);
     this.style ={};
+    this.colorCode='';
     this.state = {
       backgroundColor: "#f00",
       visibility: "hidden",
@@ -37,7 +38,10 @@ class Palette extends Component {
 
   handleButtonClick(event){
     let colorCode = this.colorCode;
-
+    if(colorCode.length === 0){
+      return;
+    }
+    
     if(colorCode.length === 3){
       colorCode = colorCode.split('').map(c => c+c ).join('');
       this.colorCode = colorCode;
