@@ -29,7 +29,11 @@ class Palette extends Component {
   }
   
   handleChange(event){
-    this.colorCode = event.target.value;
+    let colorCode = event.target.value.replace("#",'');
+    if(colorCode.length === 3){
+      colorCode = colorCode.split('').map(c => c+c ).join('');
+    }
+    this.colorCode = colorCode;
   }
 
   handleHtml5ColorChange(event){
