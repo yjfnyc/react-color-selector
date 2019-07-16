@@ -7,7 +7,7 @@ function ColorLabel({colorCode}){
     };
     return (
     <div style={style} className="ColorLabel">
-        #{colorCode}
+        #{colorCode.toLowerCase()}
     </div>
     );
 }
