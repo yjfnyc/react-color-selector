@@ -32,6 +32,11 @@ class Palette extends Component {
     this.colorCode = event.target.value;
   }
 
+  handleHtml5ColorChange(event){
+    let colorCode = event.target.value;
+    this.props.dispatchColorCode(colorCode.replace('#',''));
+  }
+
   handleClick(event){
     let colorCode = event.target.alt;
     
@@ -75,14 +80,16 @@ render(){
 
   let html5Style={
 
-  }
+  };
+
   let left = this.state.left.toString();
   let top = this.state.top.toString();
 
   let hexagonStyle = {
     left: left + "px",
     top: top + "px"
-  }
+  };
+
   return (
     <div style={this.style} className="Palette" >
       <h2>Select a Color</h2>
@@ -104,7 +111,7 @@ render(){
       <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)}></input> 
       <button onClick={()=>{this.props.dispatchColorCode(this.colorCode)}}>OK</button>
       <h2>Or Use HTML5</h2>
-      <input type="color" id="html5colorpicker" onchange="" value={colorCode} style={{...this.html5Style}}></input>
+      <input type="color" id="html5colorpicker" onChange={this.handleHtml5ColorChange.bind(this)} value={colorCode} style={{...this.html5Style}}></input>
     </div>
   );
 }
