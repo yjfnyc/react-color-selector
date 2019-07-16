@@ -78,7 +78,7 @@ class Palette extends Component {
   handleClick(event){
     let colorCode = event.target.alt;
     
-    if(colorCode != undefined){
+    if(colorCode !== undefined){
       this.setState({
         wrongInputVisibility: 'hidden'
       });
@@ -98,7 +98,7 @@ class Palette extends Component {
 
   handleHover(event){
     let colorCode = event.target.alt;
-    if(colorCode != undefined){
+    if(colorCode !== undefined){
       this.setState({
         visibility: "visible",
         backgroundColor: colorCode
