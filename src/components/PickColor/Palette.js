@@ -8,7 +8,8 @@ class Palette extends Component {
       backgroundColor: "#f00",
       visibility: "hidden",
       left: 154,
-      top: -54
+      top: -54,
+      wrongInputVisibility: 'hidden'
     };
     this.prevewStyle = {
       width: "78px",
@@ -30,10 +31,28 @@ class Palette extends Component {
   
   handleChange(event){
     let colorCode = event.target.value.replace("#",'');
+    
+    this.colorCode = colorCode;
+  }
+
+  handleButtonClick(event){
+    let colorCode = this.colorCode;
+
     if(colorCode.length === 3){
       colorCode = colorCode.split('').map(c => c+c ).join('');
+      this.colorCode = colorCode;
     }
-    this.colorCode = colorCode;
+
+    if(colorCode.length === 3 || colorCode.length === 6){
+      this.setState({
+        wrongInputVisibility: 'hidden'
+      })
+      this.props.dispatchColorCode(this.colorCode);
+    }else{
+      this.setState({
+        wrongInputVisibility: 'visible'
+      })
+    }
   }
 
   handleHtml5ColorChange(event){
@@ -76,16 +95,16 @@ handleHoverOut(event){
 }
 
 render(){
-  let colorCode = `#${this.props.colorCode}`
+  let colorCode = `#${this.props.colorCode}`;
   let style = {
     backgroundColor: this.state.backgroundColor,
     visibility: this.state.visibility
   };
-
-  let html5Style={
-
-  };
-
+  let wrongInputStyle ={
+    color: 'red',
+    margin:'4px 10px',
+    visibility: this.state.wrongInputVisibility
+  }
   let left = this.state.left.toString();
   let top = this.state.top.toString();
 
@@ -113,7 +132,8 @@ render(){
       <div id="colorPreview" style = {{...style, ...this.prevewStyle}}></div>
       <h2>Or Enter a Color:</h2>
       <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)}></input> 
-      <button onClick={()=>{this.props.dispatchColorCode(this.colorCode)}}>OK</button>
+      <button onClick={this.handleButtonClick.bind(this)}>OK</button>
+      <div style={wrongInputStyle}>Wrong Input</div>
       <h2>Or Use HTML5</h2>
       <input type="color" id="html5colorpicker" onChange={this.handleHtml5ColorChange.bind(this)} value={colorCode} style={{...this.html5Style}}></input>
     </div>
