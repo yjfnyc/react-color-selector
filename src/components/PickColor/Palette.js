@@ -92,9 +92,7 @@ class Palette extends Component {
   }
 
   handleHtml5ColorChange(event){
-    this.setState({
-      wrongInputVisibility: 'hidden'
-    });
+    this.hideWrongInput();
     let colorCode = event.target.value;
     colorCode = colorCode.replace('#','');
     this.highLightPaletteArea(colorCode);
@@ -112,13 +110,17 @@ class Palette extends Component {
       });
   }
 
+  hideWrongInput(){
+    this.setState({
+      wrongInputVisibility: 'hidden'
+    });
+  }
+
   handleClick(event){
     let colorCode = event.target.alt;
     
     if(colorCode !== undefined){
-      this.setState({
-        wrongInputVisibility: 'hidden'
-      });
+      this.hideWrongInput();
       let coords = event.target.coords.split(',');
       this.moveSelectedHexagon(coords);
       colorCode = colorCode.replace('#','');
@@ -189,7 +191,7 @@ render(){
         <div id="selectedhexagon" style={{...hexagonStyle, ...this.hexagonStyle}} ></div>
       <div id="colorPreview" style = {{...style, ...this.prevewStyle}}></div>
       <h2>Or Enter a Color:</h2>
-      <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)} onKeyDown = {this.handleKeyDown.bind(this)}></input> 
+      <input type="text" placeholder="Color value" onFocus={this.hideWrongInput.bind(this)} onChange={this.handleChange.bind(this)} onKeyDown = {this.handleKeyDown.bind(this)}></input> 
       <button onClick={this.handleButtonClick.bind(this)}>OK</button>
       <div style={wrongInputStyle}>Wrong Input</div>
       <h2>Or Use HTML5</h2>
