@@ -75,6 +75,17 @@ class Palette extends Component {
     this.props.dispatchColorCode(colorCode.replace('#',''));
   }
 
+  moveSelectedHexagon(coords){
+    let x = parseInt(coords[10]); //minimum x of the clicked area's coords
+      let y = parseInt(coords[1]);  // minimum y of the click area's coords
+      let left = x + 82;
+      let top = y - 204;
+      this.setState({
+        left: left,
+        top: top
+      });
+  }
+
   handleClick(event){
     let colorCode = event.target.alt;
     
@@ -83,14 +94,7 @@ class Palette extends Component {
         wrongInputVisibility: 'hidden'
       });
       let coords = event.target.coords.split(',');
-      let x = parseInt(coords[10]); //minimum x of the clicked area's coords
-      let y = parseInt(coords[1]);  // minimum y of the click area's coords
-      let left = x + 82;
-      let top = y - 204;
-      this.setState({
-        left: left,
-        top: top
-      });
+      this.moveSelectedHexagon(coords);
       colorCode = colorCode.replace('#','');
       this.props.dispatchColorCode(colorCode);
     }
