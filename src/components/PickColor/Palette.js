@@ -145,6 +145,12 @@ handleHoverOut(event){
   });
 }
 
+handleKeyDown(event){
+  if(event.keyCode == 13){
+    this.handleButtonClick(event);
+  }
+}
+
 render(){
   let colorCode = `#${this.props.colorCode}`;
   let style = {
@@ -183,7 +189,7 @@ render(){
         <div id="selectedhexagon" style={{...hexagonStyle, ...this.hexagonStyle}} ></div>
       <div id="colorPreview" style = {{...style, ...this.prevewStyle}}></div>
       <h2>Or Enter a Color:</h2>
-      <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)}></input> 
+      <input type="text" placeholder="Color value" onChange={this.handleChange.bind(this)} onKeyDown = {this.handleKeyDown.bind(this)}></input> 
       <button onClick={this.handleButtonClick.bind(this)}>OK</button>
       <div style={wrongInputStyle}>Wrong Input</div>
       <h2>Or Use HTML5</h2>
