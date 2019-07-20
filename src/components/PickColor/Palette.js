@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import ReactDOM from "react-dom"
 
 class Palette extends Component {
   constructor(props){
@@ -86,7 +85,6 @@ class Palette extends Component {
         hexagonVisibility: 'visible'
       });
     }else{
-      console.log("should hide")
       this.setState({
         hexagonVisibility: 'hidden'
       });
@@ -98,7 +96,9 @@ class Palette extends Component {
       wrongInputVisibility: 'hidden'
     });
     let colorCode = event.target.value;
-    this.props.dispatchColorCode(colorCode.replace('#',''));
+    colorCode = colorCode.replace('#','');
+    this.highLightPaletteArea(colorCode);
+    this.props.dispatchColorCode(colorCode);
   }
 
   moveSelectedHexagon(coords){
