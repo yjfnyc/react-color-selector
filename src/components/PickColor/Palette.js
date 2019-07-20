@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import ReactDOM from "react-dom"
 
 class Palette extends Component {
   constructor(props){
@@ -10,7 +11,8 @@ class Palette extends Component {
       visibility: "hidden",
       left: 154,
       top: -54,
-      wrongInputVisibility: 'hidden'
+      wrongInputVisibility: 'hidden',
+      hexagonVisibility: "visible"
     };
     this.prevewStyle = {
       width: "78px",
@@ -19,7 +21,6 @@ class Palette extends Component {
       marginRight: "auto",
     };
     this.hexagonStyle = {
-      visibility: "visible", 
       position: "relative", 
       width: "21px", 
       height: "21px",
@@ -60,10 +61,35 @@ class Palette extends Component {
         wrongInputVisibility: 'hidden'
       })
       this.props.dispatchColorCode(this.colorCode);
+      this.highLightPaletteArea(this.colorCode);
     }else{
       this.setState({
         wrongInputVisibility: 'visible'
       })
+    }
+  }
+
+  highLightPaletteArea(colorCode){
+    const areas = this.map.querySelectorAll('area');
+    let matchedArea;
+    areas.forEach(function(area){
+      if(area.alt === `#${colorCode.toUpperCase()}`){
+        matchedArea = area;
+        return;
+      }
+    });
+
+    if(matchedArea !== undefined){
+      let coords = matchedArea.coords.split(',');
+      this.moveSelectedHexagon(coords);
+      this.setState({
+        hexagonVisibility: 'visible'
+      });
+    }else{
+      console.log("should hide")
+      this.setState({
+        hexagonVisibility: 'hidden'
+      });
     }
   }
 
@@ -96,6 +122,9 @@ class Palette extends Component {
       let coords = event.target.coords.split(',');
       this.moveSelectedHexagon(coords);
       colorCode = colorCode.replace('#','');
+      this.setState({
+        hexagonVisibility: 'visible'
+      });
       this.props.dispatchColorCode(colorCode);
     }
   }
@@ -131,6 +160,7 @@ render(){
   let top = this.state.top.toString();
 
   let hexagonStyle = {
+    visibility: this.state.hexagonVisibility, 
     left: left + "px",
     top: top + "px"
   };
@@ -140,7 +170,7 @@ render(){
       <h2>Select a Color</h2>
         <div>
             <img src="/asset/img_colormap.gif" useMap="#colormap" alt="colormap" />
-            <map id="colormap" name="colormap" onClick={this.handleClick.bind(this)} onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleHoverOut.bind(this)}>
+            <map id="colormap" name="colormap" onClick={this.handleClick.bind(this)} onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleHoverOut.bind(this)} ref={e=>this.map=e}>
             <area shape="poly" coords="63,0,72,4,72,15,63,19,54,15,54,4" alt="#003366"  />
             <area shape="poly" coords="81,0,90,4,90,15,81,19,72,15,72,4" alt="#336699"  />
             <area shape="poly" coords="99,0,108,4,108,15,99,19,90,15,90,4"  alt="#3366CC"  />

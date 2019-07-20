@@ -7,7 +7,6 @@ function ColorBoard({colorCode}) {
         border: "1px solid #e3e3e3",
         backgroundColor: `#${colorCode}`,
         margin: "auto"
-
     };
 
     return (
