@@ -2,6 +2,7 @@
 Try to emulate partial functionality of [HTML Color Picker](https://www.w3schools.com/colors/colors_picker.asp
 ) with a REACT implementation.
 
+Now hosted on https://my-react-color-picker.herokuapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
