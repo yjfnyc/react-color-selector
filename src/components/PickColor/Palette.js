@@ -186,13 +186,13 @@ render(){
     left: left + "px",
     top: top + "px"
   };
-
+ 
   return (
     <div style={this.style} className="Palette" >
       <h2>Select a Color</h2>
         <div>
             <img src="/asset/img_colormap.gif" useMap="#colormap" alt="colormap" />
-            <map id="colormap" name="colormap" onClick={this.handleClick.bind(this)} onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleHoverOut.bind(this)} ref={e=>this.map=e}>
+            <map id="colormap" name="colormap" onClick={(e)=>this.handleClick(e)} onMouseOver={(e)=> this.handleHover(e)} onMouseOut={(e)=>this.handleHoverOut(e)} ref={e=>this.map=e}>
             <area shape="poly" coords="63,0,72,4,72,15,63,19,54,15,54,4" alt="#003366"  />
             <area shape="poly" coords="81,0,90,4,90,15,81,19,72,15,72,4" alt="#336699"  />
             <area shape="poly" coords="99,0,108,4,108,15,99,19,90,15,90,4"  alt="#3366CC"  />
