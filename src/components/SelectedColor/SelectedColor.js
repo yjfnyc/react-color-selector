@@ -9,7 +9,7 @@ function SelectedColor(colorCode) {
         width: 400,
         height: 500,
         verticalAlign: "top",
-        margin: "auto 20px"
+        margin: "auto 20px 32px 20px"
     }
   return (
     <div style={style} className="SelectedColor">
