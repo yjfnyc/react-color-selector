@@ -36,7 +36,7 @@ class Palette extends Component {
   }
   
   componentDidMount() {
-    fetch("http://localhost:3001/api/colors")
+    fetch(process.env.REACT_APP_apiUrl||"https://yjf-api-server.herokuapp.com/api/colors/")
       .then(res => res.json())
       .then(
         (result) => {
