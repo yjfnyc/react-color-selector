@@ -52,7 +52,20 @@ class Palette extends Component {
             error
           });
         }
-      )
+      );
+    
+      fetch(process.env.REACT_APP_graphqlUrl||"https://yjf-api-server.herokuapp.com/graphql", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({ 
+            query: "{ colors }"
+          })
+        })
+        .then(r => r.json())
+        .then(data => console.log('data returned:', data));
   }
 
   handleChange(event){
